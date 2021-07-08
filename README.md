@@ -1,17 +1,11 @@
-# api-revenue-manager
+# pub-sub
 
-Backend Microservice to handle pricing, ledger management, invoicing, payments, etc.
+Backend Microservice to handle pubsub.
 
 ## Setup
 
 ### PostgreSQL
-* *Installation Site:* [Postgres.app Downloads](https://postgresapp.com/downloads.html)
-* *Create a schema with name "revenue" in DB:*
-```
-CREATE SCHEMA revenue;
-GRANT ALL ON ALL TABLES IN SCHEMA revenue TO <user_name>;
-GRANT ALL ON SCHEMA revenue TO <user_name>;
-``` 
+* *Installation Site:* [Postgres.app Downloads](https://postgresapp.com/downloads.html) 
 
 ### Go lang
 Follow all the installation steps as mentioned on the installation website
@@ -21,6 +15,6 @@ Follow all the installation steps as mentioned on the installation website
 ```cassandraql
 go get
 go build
-./api-revenue-manager migrate // This command runs the migrations and creates relevant tables in DB
-./api-revenue-manager run-server // This command starts REST server
+./PubSub migrate // This command runs the migrations and creates relevant tables in DB
+./PubSub run-server // This command starts REST server
 ```

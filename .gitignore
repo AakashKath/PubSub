@@ -1,0 +1,49 @@
+# Binaries for programs and plugins
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+
+# Test binary, build with `go test -c`
+*.test
+
+# Output of the go coverage tool, specifically when used with LiteIDE
+*.out
+
+# Configuration Files
+*.toml
+
+# Binary Files
+./pricing-service
+*pricing-service*
+color
+migrations/migrations
+api-revenue-manager
+
+# IDE Files
+.idea/
+
+# VSConfig
+.vscode
+
+# MacOS system files
+**/.DS_Store
+
+# Node Modules
+**/node_modules/
+
+# Wrangler config
+**/wrangler.toml
+
+# Wrangler distributables
+**/dist/
+**/worker/
+
+# Configuration Files
+secrets.yml
+permission.conf
+
+go.mod
+go.sum
+

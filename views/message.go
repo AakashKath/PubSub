@@ -1,6 +1,7 @@
 package views
 
 import (
+	"bufio"
 	"encoding/json"
 	"fmt"
 	"net"
@@ -44,7 +45,6 @@ func Publish(w http.ResponseWriter, r *http.Request) {
 
 func sendToAllClients(topic models.Topic, content string) error {
 	db := lib.DB.Connection
-	fmt.Println("topic", topic, "id", topic.ID)
 	var subscriptions []int64
 	if err := db.Table("subscription").Where("topic_id = ?", topic.ID).Select("id").Find(&subscriptions).Error; err != nil {
 		fmt.Println("Error while finding records", "table", "subscription", "error", err.Error())
@@ -65,5 +65,8 @@ func sendToAllClients(topic models.Topic, content string) error {
 func sendMessage(content string) error {
 	conn, _ := net.Dial("tcp", "127.0.0.1:8000")
 	fmt.Fprintf(conn, content+"\n")
-	return nil
+	for {
+		message, _ := bufio.NewReader(conn).ReadString('\n')
+		fmt.Print(string(message))
+	}
 }

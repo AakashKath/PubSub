@@ -13,5 +13,6 @@ func RunClient() {
 	for {
 		message, _ := bufio.NewReader(conn).ReadString('\n')
 		fmt.Print("Message Received: ", string(message))
+		fmt.Fprintf(conn, "Message Received at subscriptionID, MessageID"+"\n")
 	}
 }

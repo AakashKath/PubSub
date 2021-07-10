@@ -3,7 +3,7 @@ package lib
 import (
 	"fmt"
 
-	"git.naspersclassifieds.com/olx/olxpeople/e2e/api-revenue-manager/settings"
+	"github.com/AakashKath/PubSub/settings"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 	gormLogger "gorm.io/gorm/logger"
@@ -30,7 +30,7 @@ func init() {
 
 // GetConnection : This can be called from anywhere in the code to get the DB connection
 func GetConnection() (dbConnection *gorm.DB, err error) {
-	if DB.Status == true {
+	if DB.Status {
 		return DB.Connection, nil
 	}
 
@@ -41,7 +41,6 @@ func GetConnection() (dbConnection *gorm.DB, err error) {
 		Logger:               gormLogger.Default.LogMode(gormLogger.Error),
 		DisableAutomaticPing: true,
 		NamingStrategy: schema.NamingStrategy{
-			TablePrefix:   "revenue.",
 			SingularTable: true,
 		},
 	})

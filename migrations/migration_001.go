@@ -12,4 +12,5 @@ func migrate001() {
 	db.AutoMigrate(&models.Topic{})
 	db.AutoMigrate(&models.Message{})
 	db.AutoMigrate(&models.TopicSubs{})
+	db.AutoMigrate(&models.Subscriber{})
 }

@@ -50,6 +50,7 @@ func findArgument(argToFind string, argsList []string) bool {
 func main() {
 	err := cli.Root(root, cli.Tree(help),
 		cli.Tree(command("run-server", "Argument to run HTTP Server.")),
+		cli.Tree(command("run-client", "Argument to run Client.")),
 		cli.Tree(command("migrate", "Argument for running Migrations."))).Run(os.Args[1:])
 	if err != nil {
 		_, _ = fmt.Fprintln(os.Stderr, err)
@@ -60,5 +61,8 @@ func main() {
 	}
 	if findArgument("run-server", os.Args[1:]) {
 		RunRESTServer()
+	}
+	if findArgument("run-client", os.Args[1:]) {
+		RunClient()
 	}
 }

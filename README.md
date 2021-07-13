@@ -17,6 +17,7 @@ go get
 go build
 ./PubSub migrate // This command runs the migrations and creates relevant tables in DB
 ./PubSub run-server // This command starts REST server
+./PubSub run-client // This command starts Client
 ```
 
 ### Sample secrets.yml

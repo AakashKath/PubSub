@@ -18,3 +18,13 @@ go build
 ./PubSub migrate // This command runs the migrations and creates relevant tables in DB
 ./PubSub run-server // This command starts REST server
 ```
+
+### Sample secrets.yml
+```
+database:
+    name: name
+    user: user
+    password: password
+generic:
+    debug: False
+```

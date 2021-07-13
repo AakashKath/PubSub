@@ -43,7 +43,3 @@ api-revenue-manager
 # Configuration Files
 secrets.yml
 permission.conf
-
-go.mod
-go.sum
-
